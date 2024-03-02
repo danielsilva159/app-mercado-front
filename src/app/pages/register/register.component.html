@@ -1,0 +1,32 @@
+<div class="container">
+
+    <form class="register col-6" [action]="onPasswordChange()" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+      <div class="col-10 logo">
+        <h2>Faça o seu cadastro aqui</h2>
+        <img ngSrc="assets/images/logo.jpg" alt="logo" width="400" height="200">
+      </div>
+    <div class="col-10 input">
+      <label for="nome" class="form-label">Nome.:</label>
+      <input type="text" class="form-control" id="nome" formControlName="name" placeholder="Digite seu nome.:">
+      <div class="alert alert-danger" *ngIf="registerForm.controls.name.errors?.['required']"> Nome obrigatorio </div>
+    </div>
+    <div class="col-10 input">
+      <label for="email" class="form-label">Email.:</label>
+      <input type="text" class="form-control" id="email" formControlName="email" placeholder="Digite seu email.:">
+      <div class="alert alert-danger" *ngIf="registerForm.controls.email.errors?.['required']"> Email obrigatorio </div>
+      <div class="alert alert-danger" *ngIf="registerForm.controls.email.errors?.['email']"> Formato do email invalido </div>
+    </div>
+    <div class="col-10 input">
+      <label for="password" class="form-label">Senha.:</label>
+      <input type="password" class="form-control" id="password" formControlName="password" placeholder="Digite sua senha.:">
+    </div>
+    <div class="col-10 input">
+      <label for="confirm-password" class="form-label">Confirmar senha.:</label>
+      <input type="password" class="form-control" id="confirm-password" formControlName="confirm_password" placeholder="Confirme sua senha.:">
+    </div>
+    <div class="buttons col-10">
+      <Button class="btn btn-primary" type="submit">Registrar</Button>
+      <Button class="btn btn-outline-secondary" [routerLink]="['/login']">Cancelar</Button>
+    </div>
+  </form>
+</div>
